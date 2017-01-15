@@ -31,9 +31,9 @@ A drop down for iOS. Designed by Kevin Hirsch. Written in OC by Zirkfied. It can
         
 
 
-###其余说明 
+###其余说明
 ####
-        1.若是通过网络加载数据，在拿到数据后调用[dropDown reloadData]进行刷新列表;
+        1.若是通过网络加载数据，在拿到数据后调用[dropDown reloadData]进行刷新列表
         2.自定义样式请看Demo示例中的CustomViewController.m
         
         
