@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>cover</key>
+		<string>Animals</string>
+		<key>title</key>
+		<string>Animals</string>
+		<key>singer</key>
+		<string>Maroon 5</string>
+	</dict>
+	<dict>
+		<key>cover</key>
+		<string>Faded</string>
+		<key>title</key>
+		<string>Faded</string>
+		<key>singer</key>
+		<string>N2V&amp;Conor Maynard Remix</string>
+	</dict>
+	<dict>
+		<key>cover</key>
+		<string>I&apos;ll Be Fine</string>
+		<key>title</key>
+		<string>I&apos;ll Be Fine</string>
+		<key>singer</key>
+		<string>Stevie Hoang</string>
+	</dict>
+	<dict>
+		<key>cover</key>
+		<string>Maps</string>
+		<key>title</key>
+		<string>Maps</string>
+		<key>singer</key>
+		<string>Maroon 5</string>
+	</dict>
+	<dict>
+		<key>cover</key>
+		<string>The Lazy Song</string>
+		<key>title</key>
+		<string>The Lazy Song</string>
+		<key>singer</key>
+		<string>Bruno Mars</string>
+	</dict>
+	<dict>
+		<key>cover</key>
+		<string>The Phoenix</string>
+		<key>title</key>
+		<string>The Phoenix</string>
+		<key>singer</key>
+		<string>Fall Out Boy</string>
+	</dict>
+	<dict>
+		<key>cover</key>
+		<string>See you again</string>
+		<key>title</key>
+		<string>See you again</string>
+		<key>singer</key>
+		<string>Wiz Khalifa</string>
+	</dict>
+	<dict>
+		<key>cover</key>
+		<string>Soldier</string>
+		<key>title</key>
+		<string>Soldier</string>
+		<key>singer</key>
+		<string>Gareth Emery</string>
+	</dict>
+	<dict>
+		<key>cover</key>
+		<string>Untied State Of Pop 2014</string>
+		<key>title</key>
+		<string>Untied State Of Pop 2014</string>
+		<key>singer</key>
+		<string>DJ Earworm</string>
+	</dict>
+</array>
+</plist>
