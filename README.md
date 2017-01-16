@@ -5,7 +5,7 @@ A drop down for iOS. Designed by Kevin Hirsch. Written in OC by Zirkfied. It can
 
 ####Swift : https://github.com/AssistoLab/DropDown
 
-![](https://github.com/Zirkfied/Library/blob/master/DropDown1.png)![](https://github.com/Zirkfied/Library/blob/master/DropDown2.png)![](https://github.com/Zirkfied/Library/blob/master/DropDown3.png)
+![](https://github.com/Zirkfied/Library/blob/master/DropDown1.png)![](https://github.com/Zirkfied/Library/blob/master/DropDown2.png)![](https://github.com/Zirkfied/Library/blob/master/DropDown3.png)![](https://github.com/Zirkfied/Library/blob/master/DropDown.gif)
 
 
 
