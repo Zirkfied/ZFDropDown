@@ -35,8 +35,9 @@ A drop down for iOS. Designed by Kevin Hirsch. Written in OC by Zirkfied. It can
 ####
         1.若是通过网络加载数据，在拿到数据后调用[dropDown reloadData]进行刷新列表
         2.自定义样式请看Demo示例中的CustomViewController.m
-        
-        
+        3.其余方法和属性请查看ZFDropDown.h
+   
+        
 ###更新日志
         2017.01.15 初版发布
         
