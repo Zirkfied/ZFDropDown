@@ -42,6 +42,6 @@ A drop down for iOS. Designed by Kevin Hirsch. Written in OC by Zirkfied. It can
         2017.01.15 初版发布
         
 ##本人其他开源框架
-####[ZFChart - 一款简单好用的图表库，目前有柱状，线状，饼图，波浪图类型](https://github.com/Zirkfied/ZFChart)
+####[ZFChart - 一款简单好用的图表库，目前有柱状，线状，饼图，波浪，雷达，圆环图类型](https://github.com/Zirkfied/ZFChart)
 ####[ZFScan - 仿微信 二维码/条形码 扫描](https://github.com/Zirkfied/ZFScan)
 ####[ZFDropDown - 简单大气的下拉列表框](https://github.com/Zirkfied/ZFDropDown)
