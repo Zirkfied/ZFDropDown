@@ -147,6 +147,8 @@ typedef enum{
  
     target填写当前的dropDown, 切勿填self, 否则无效
     selector则为show
+ 
+    具体用法请看CustomViewController.m
  */
 - (void)show;
 
