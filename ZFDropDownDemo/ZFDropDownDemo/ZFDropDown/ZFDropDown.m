@@ -48,6 +48,7 @@
     _cellTextColor = ZFBlack;
     _cellTextFont = [UIFont systemFontOfSize:17.f];
     _cellTextAlignment = NSTextAlignmentLeft;
+    _cellNumberOfLines = 1;
     _borderStyle = kDropDownTopicBorderStyleNone;
     _borderColor = ZFLightGray;
     _separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -60,21 +61,10 @@
     if (self) {
         _pattern = pattern;
         [self commonInit];
+        [self setUpUI];
     }
     
     return self;
-}
-
-- (void)setUp{
-    if ([self.delegate respondsToSelector:@selector(itemArrayInDropDown:)]) {
-        self.itemArray = [NSArray arrayWithArray:[self.delegate itemArrayInDropDown:self]];
-    }
-    
-    if ([self.delegate respondsToSelector:@selector(numberOfRowsToDisplayIndropDown:itemArrayCount:)]) {
-        _numberOfRowsToDisplay = [self.delegate numberOfRowsToDisplayIndropDown:self itemArrayCount:self.itemArray.count];
-    }
-    
-    [self setUpUI];
 }
 
 /**
@@ -91,16 +81,9 @@
         self.topicButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [self.topicButton addTarget:self action:@selector(show) forControlEvents:UIControlEventTouchUpInside];
         [self.topicContainerView addSubview:self.topicButton];
-        
     }else if (_pattern == kDropDownPatternCustom){
-        if ([self.delegate respondsToSelector:@selector(viewForTopicInDropDown:)]) {
-            [self.topicContainerView addSubview:[self.delegate viewForTopicInDropDown:self]];;
-            
-            UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(show)];
-            [self.topicContainerView addGestureRecognizer:tap];
-        }else{
-            NSLog(@"请通过- (UIView *)viewForTopicInDropDown:(ZFDropDown *)dropDown协议方法返回一个自定义topic view");
-        }
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(show)];
+        [self.topicContainerView addGestureRecognizer:tap];
     }
     
     //装载tableView的背景容器
@@ -116,6 +99,34 @@
     self.tableView.backgroundColor = _tableViewBackgroundColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableViewContainerView addSubview:self.tableView];
+}
+
+- (void)reset{
+    if ([self.delegate respondsToSelector:@selector(itemArrayInDropDown:)]) {
+        self.itemArray = [NSArray arrayWithArray:[self.delegate itemArrayInDropDown:self]];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(numberOfRowsToDisplayIndropDown:itemArrayCount:)]) {
+        _numberOfRowsToDisplay = [self.delegate numberOfRowsToDisplayIndropDown:self itemArrayCount:self.itemArray.count];
+    }
+}
+
+/**
+ *  重新设置部分UI属性
+ */
+- (void)resetUI{
+    self.tableViewContainerView.frame = CGRectMake(0, CGRectGetMaxY(self.topicContainerView.frame) + 1, CGRectGetWidth(self.frame), _numberOfRowsToDisplay * _heightForRow);
+    self.tableViewContainerView.layer.shadowPath = [UIBezierPath bezierPathWithRect:_tableViewContainerView.bounds].CGPath;
+    self.tableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.tableViewContainerView.frame), CGRectGetHeight(self.tableViewContainerView.frame));
+    
+    if (_pattern == kDropDownPatternCustom){
+        if ([self.delegate respondsToSelector:@selector(viewForTopicInDropDown:)]) {
+            [self.topicContainerView addSubview:[self.delegate viewForTopicInDropDown:self]];;
+            
+        }else{
+            NSLog(@"请通过- (UIView *)viewForTopicInDropDown:(ZFDropDown *)dropDown协议方法返回一个自定义topic view");
+        }
+    }
 }
 
 /**
@@ -250,7 +261,7 @@
         if ([cell respondsToSelector:@selector(setSeparatorInset:)]){
             [cell setSeparatorInset:UIEdgeInsetsZero];
         }
-    
+        
         NSString * text = nil;
         if ([self.itemArray[indexPath.row] isKindOfClass:[NSString class]]) {
             text = self.itemArray[indexPath.row];
@@ -258,15 +269,16 @@
             NSLog(@"当前dropDown样式为kDropDownPatternDefault, 请替换为kDropDownPatternCustom");
             return [[UITableViewCell alloc] init];
         }
-
+        
         cell.textLabel.text = text;
         cell.textLabel.textColor = _cellTextColor;
         cell.textLabel.font = _cellTextFont;
         cell.textLabel.textAlignment = _cellTextAlignment;
+        cell.textLabel.numberOfLines = _cellNumberOfLines;
         cell.backgroundColor = ZFClear;
         return cell;
-    
-    //自定义cell
+        
+        //自定义cell
     }else if (_pattern == kDropDownPatternCustom){
         if ([self.delegate respondsToSelector:@selector(dropDown:tableView:cellForRowAtIndexPath:)]) {
             return [self.delegate dropDown:self tableView:tableView cellForRowAtIndexPath:indexPath];
@@ -280,7 +292,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.delegate respondsToSelector:@selector(dropDown:heightForRowAtIndexPath:)]) {
-        return [self.delegate dropDown:self heightForRowAtIndexPath:indexPath];
+        _heightForRow = [self.delegate dropDown:self heightForRowAtIndexPath:indexPath];
     }
     
     return _heightForRow;
@@ -301,7 +313,9 @@
 #pragma mark - public method
 
 - (void)reloadData{
+    [self reset];
     [self.tableView reloadData];
+    [self resetUI];
 }
 
 - (void)resignDropDownResponder{
@@ -314,14 +328,15 @@
     if (!_itemArray) {
         _itemArray = [NSArray array];
     }
-
+    
     return _itemArray;
 }
 
 - (void)setDelegate:(id<ZFDropDownDelegate>)delegate{
     _delegate = delegate;
     
-    [self setUp];
+    [self reset];
+    [self resetUI];
 }
 
 - (void)setTopicBackgroundColor:(UIColor *)topicBackgroundColor{

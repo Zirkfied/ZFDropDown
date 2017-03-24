@@ -49,7 +49,6 @@
     self.dropDown.borderStyle = kDropDownTopicBorderStyleRect;
     [self.view addSubview:self.dropDown];
     
-    
     self.tap = [[ZFTapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
     [self.view addGestureRecognizer:self.tap];
 }

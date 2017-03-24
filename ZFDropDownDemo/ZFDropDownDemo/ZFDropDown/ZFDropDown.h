@@ -20,7 +20,7 @@
  *
  *  PS:①当dropDown为kDropDownPatternDefault时, NSArray必须存储NSString类型: @[@"1", @"2", @"3"];
  
-       ②当dropDown为kDropDownPatternCustom时, NSArray可存储任意元素类型，但所有元素的类型必须一致
+ ②当dropDown为kDropDownPatternCustom时, NSArray可存储任意元素类型，但所有元素的类型必须一致
  *
  *  @return NSArray
  */
@@ -32,7 +32,7 @@
 
 /**
  *  设置cell高度(默认为44.f)
- *  
+ *
  *  @param dropDown 当前dropDown
  *  @param indexPath 当前cell的下标
  */
@@ -43,7 +43,7 @@
  *
  *  @param dropDown 当前dropDown
  *  @param count 可拿到数据源的个数进行特殊情况行数展示设置
-                 eg: 例如当有多个dropDown时，某个dropDown数据源的个数不够n个，则可以用此方法拿到count进行判断，当count < n，则返回当前数据源的个数，否则则返回n个
+ eg: 例如当有多个dropDown时，某个dropDown数据源的个数不够n个，则可以用此方法拿到count进行判断，当count < n，则返回当前数据源的个数，否则则返回n个
  *
  *  @return 返回NSUInteger
  */
@@ -56,7 +56,7 @@
 
 /**
  *  返回自定义cell(当dropDown为kDropDownPatternDefault时，该方法无效)
-
+ 
  *  @param dropDown 当前dropDown
  *  @param tableView tableView
  *  @param indexPath indexPath
@@ -66,7 +66,7 @@
 
 /**
  *获取被点击的数据所在数组的下标，用于进行后续的数据传值操作
-
+ 
  *  @param dropDown 当前dropDown
  *  @param indexPath 数据所在数组的位置下标
  */
@@ -113,6 +113,8 @@ typedef enum{
 @property (nonatomic, strong) UIFont * cellTextFont;
 /** cell文本Alignment */
 @property (nonatomic, assign) NSTextAlignment cellTextAlignment;
+/** cell文本显示行数(默认为1行) */
+@property (nonatomic, assign) NSInteger cellNumberOfLines;
 /** tableView展示方向(默认为kDropDownOrientationDown) */
 @property (nonatomic, assign) kDropDownOrientation orientation;
 
@@ -128,7 +130,7 @@ typedef enum{
 
 /**
  *  初始化
-
+ 
  *  @param frame frame
  *  @param pattern dropDown样式
  *  @return self
@@ -143,12 +145,12 @@ typedef enum{
 /**
  *  当dropDown为kDropDownTopicPatternForCustom自定义样式时，且viewForTopic里有UIButton或UIControl控件时，若需要通过该UIButton或UIControl弹出下拉列表，则添加下句代码:
  
-    [self.button addTarget:dropDown action:@selector(show) forControlEvents:UIControlEventTouchUpInside];
+ [self.button addTarget:dropDown action:@selector(show) forControlEvents:UIControlEventTouchUpInside];
  
-    target填写当前的dropDown, 切勿填self, 否则无效
-    selector则为show
+ target填写当前的dropDown, 切勿填self, 否则无效
+ selector则为show
  
-    具体用法请看CustomViewController.m
+ 具体用法请看CustomViewController.m
  */
 - (void)show;
 
