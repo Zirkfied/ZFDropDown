@@ -41,6 +41,9 @@ A drop down for iOS. Designed by Kevin Hirsch. Written in OC by Zirkfied. It can
 ###更新日志
         2017.01.15 初版发布
         
+        2017.03.27 ①修复网络加载无法刷新数据问题
+                   ②新增shadowOpacity(阴影透明度)属性
+        
 ##本人其他开源框架
 ####[ZFChart - 一款简单好用的图表库，目前有柱状，线状，饼图，波浪，雷达，圆环图类型](https://github.com/Zirkfied/ZFChart)
 ####[ZFScan - 仿微信 二维码/条形码 扫描](https://github.com/Zirkfied/ZFScan)
