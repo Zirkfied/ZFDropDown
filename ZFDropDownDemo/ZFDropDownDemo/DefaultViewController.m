@@ -48,6 +48,7 @@
 //    self.dropDown2.topicButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     [self.view addSubview:self.dropDown2];
     
+    
     self.tap = [[ZFTapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
     [self.view addGestureRecognizer:self.tap];
 }

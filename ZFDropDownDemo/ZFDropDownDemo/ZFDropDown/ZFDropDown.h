@@ -118,6 +118,8 @@ typedef enum{
 /** tableView展示方向(默认为kDropDownOrientationDown) */
 @property (nonatomic, assign) kDropDownOrientation orientation;
 
+/** tableView的阴影透明度(默认为0.5, 范围0~1) */
+@property (nonatomic, assign) CGFloat shadowOpacity;
 /** tableView的cornerRadius */
 @property (nonatomic, assign) CGFloat cornerRadius;
 /** tableView分割线样式(默认为UITableViewCellSeparatorStyleNone) */

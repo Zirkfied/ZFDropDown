@@ -42,6 +42,7 @@
     _originRect = self.frame;
     _numberOfRowsToDisplay = 6;
     _heightForRow = 44.f;
+    _shadowOpacity = 0.5f;
     _cornerRadius = 0.f;
     _topicBackgroundColor = ZFClear;
     _tableViewBackgroundColor = ZFTaupe3;
@@ -151,7 +152,7 @@
         self.tableViewContainerView.alpha = 1.f;
         self.tableViewContainerView.hidden = NO;
         self.tableViewContainerView.layer.shadowColor = ZFDarkGray.CGColor;
-        self.tableViewContainerView.layer.shadowOpacity = 0.4f;
+        self.tableViewContainerView.layer.shadowOpacity = _shadowOpacity;
         self.tableViewContainerView.layer.shadowOffset = CGSizeZero;
         self.tableViewContainerView.layer.shadowRadius = 8.f;
         CGAffineTransform originTransform = self.tableViewContainerView.transform;
