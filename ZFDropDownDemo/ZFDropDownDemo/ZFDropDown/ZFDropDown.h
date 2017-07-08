@@ -18,9 +18,9 @@
 /**
  *  数据
  *
- *  PS:①当dropDown为kDropDownPatternDefault时, NSArray必须存储NSString类型: @[@"1", @"2", @"3"];
+ *  PS: ①当dropDown为kDropDownPatternDefault时, NSArray必须存储NSString类型: @[@"1", @"2", @"3"];
  
- ②当dropDown为kDropDownPatternCustom时, NSArray可存储任意元素类型，但所有元素的类型必须一致
+        ②当dropDown为kDropDownPatternCustom时, NSArray可存储任意元素类型，但所有元素的类型必须一致
  *
  *  @return NSArray
  */
@@ -43,7 +43,7 @@
  *
  *  @param dropDown 当前dropDown
  *  @param count 可拿到数据源的个数进行特殊情况行数展示设置
- eg: 例如当有多个dropDown时，某个dropDown数据源的个数不够n个，则可以用此方法拿到count进行判断，当count < n，则返回当前数据源的个数，否则则返回n个
+    eg: 例如当有多个dropDown时，某个dropDown数据源的个数不够n个，则可以用此方法拿到count进行判断，当count < n，则返回当前数据源的个数，否则则返回n个
  *
  *  @return 返回NSUInteger
  */
